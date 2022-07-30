@@ -5,7 +5,7 @@ $pdo = new PDO("mysql:host=localhost;dbname=another;cahrset=utf8", 'root', '');
 // comment
 
 
-
+// comment else
 
 // this is another comment
 ?>
