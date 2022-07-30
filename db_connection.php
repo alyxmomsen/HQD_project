@@ -5,6 +5,8 @@ $pdo = new PDO("mysql:host=localhost;dbname=another;cahrset=utf8", 'root', '');
 // comment
 $var = 0 ;
 
+$var2 = 6 ;
+
 // comment else
 
 // this is another comment

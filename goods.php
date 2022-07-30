@@ -32,9 +32,11 @@
             <button class="close-button">X</button>
             <div class="menu-aside-content-container">
                 <div class="main-menu-list-container">
-                    <li class="main-menu-item"><a href="http://moroz.dobolli.ru/">главная</a></li>
-                    <li class="main-menu-item"><a href="http://moroz.dobolli.ru/">продукты</a></li>
-                    <li class="main-menu-item"><a href="http://moroz.dobolli.ru/">о нас</a></li>
+                    <li class="main-menu-item"><a href="/">главная</a></li>
+                    <li class="main-menu-item"><a href="/goods.php">продукты</a></li>
+                    <li class="main-menu-item"><a href="/">о нас</a></li>
+                    <li id='entrance' class="main-menu-item"><a href="/entrance.php">вход</a></li>
+                    <li class="main-menu-item"><a href="logout.php">logout</a></li>
                 </div>
             </div>
         </aside>
