@@ -20,8 +20,8 @@ class GoodsManager {
 
 
     public function getSomeGoods($limit , $op1 = '') {
-        // $pdo = new PDO("mysql:host=localhost;dbname=ci18760_testsite;cahrset=utf8", 'ci18760_testsite', 'Henaros42');
-        $pdo = new PDO("mysql:host=localhost;dbname=another;cahrset=utf8", 'root', '');
+        
+        require_once './db_connection.php' ;
 
         $statement = $pdo->prepare("SELECT * FROM `Goods` ORDER BY `id` /* ASC */DESC LIMIT {$limit}") ;
         $statement->execute() ;
