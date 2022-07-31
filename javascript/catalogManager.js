@@ -1,5 +1,90 @@
 'use strict'
 
+
+
+class GoodCardPreview {
+
+    subj_DOM_elem = document.createElement('div') ;
+
+    title = null ;
+    description = null ;
+    description_full = null ;
+
+    img = null ;
+
+    constructor ({title , description , description_full , imgSrc}) {
+
+        class Img {
+
+            createSDE (className = '' , secondClassName = '') {
+
+                const newSde = document.createElement('img');
+                newSde.className = className ;
+                newSde.classList.add(secondClassName);
+
+                return newSde ;
+            }
+
+            subj_DOM_elem = null ;
+
+            src = '' ;
+
+            constructor (src , className1 , className2) {
+
+                this.src = src ;
+
+                this.subj_DOM_elem = this.createSDE(className1 , className2);
+
+                this.subj_DOM_elem.src = this.src ;
+
+            }
+        }
+
+        class Item {
+
+            subj_DOM_elem = null ;
+
+            text = '' ;
+
+            createSDE (className = '' , secondClassName = '') {
+
+                const newSde = document.createElement('div');
+                newSde.className = className ;
+                newSde.classList.add(secondClassName);
+
+                return newSde ;
+            }
+
+            constructor (text , className1 , className2) {
+
+                this.subj_DOM_elem = this.createSDE(className1 , className2) ;
+                this.text = text ;
+                this.subj_DOM_elem.innerText = this.text ;
+            }
+        }
+    
+        this.subj_DOM_elem.className = 'goodCard-preview' ;
+
+        const divPrefab = document.createElement('div') ;
+        divPrefab.className = 'goog-item' ;
+
+        
+
+        this.title = new Item (title , 'goodItem' , 'goodItem-title') ;
+
+        this.description = new Item (description , 'goodItem' , 'goodItem-description') ;
+
+        this.description_full = new Item (description_full , 'goodItem' , 'goodItem-description-full') ;
+
+        this.img = new Img (imgSrc , 'goodItem' , 'goodItem-description-full');
+
+
+        this.subj_DOM_elem.append(this.title.subj_DOM_elem , this.description.subj_DOM_elem , this.description_full.subj_DOM_elem , this.img.subj_DOM_elem) ;
+    }
+}
+
+
+
 class BrandNames {
 
     subj_DOM_elem = document.createElement('div') ;
@@ -31,10 +116,22 @@ class BrandNames {
             display.innerHTML = '' ;
             
             data.forEach(elem => {
+
+                const cardPreview = new GoodCardPreview ({title: elem.modelname , description:elem.title , description_full:elem.description , imgSrc: elem.src}) ;
+
+
+
                 console.log(elem);
                 let div = document.createElement('div');
-                div.innerText = elem.taste ;
+
+
+                div.append(cardPreview.subj_DOM_elem);
+                // div.innerText = elem.taste ;
                 display.append(div);
+
+
+
+
             });
             
             return data ;
