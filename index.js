@@ -29,7 +29,6 @@ class TheSite {
 
         }
 
-
         if(mainContent_landing) {
 
             import('./javascript/store.js?v=' + Date.now()).then(module => {
@@ -56,25 +55,20 @@ class TheSite {
                 
             });
         }
-
     }
 }
 
-
-
-'hello world' ;
-'hello else' ;
-
 new TheSite ;
 
-let localstorage = window.localStorage ; 
+// let localstorage = window.localStorage ; 
 
-document.querySelector('body').onclick = (e) => {
-    e.stopPropagation();
+// document.querySelector('body').onclick = (e) => {
 
-    localStorage.setItem('myCat' , 'Tom ' + Date.now());
-    console.log(localstorage);
-    // localstorage.clear();
+//     e.stopPropagation();
 
-    // alert();
-};
+//     localStorage.setItem('myCat' , 'Tom ' + Date.now());
+//     console.log(localstorage);
+//     // localstorage.clear();
+
+//     // alert();
+// };

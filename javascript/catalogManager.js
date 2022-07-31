@@ -1,21 +1,16 @@
 'use strict'
 
-
-
 class BrandNames {
 
     subj_DOM_elem = document.createElement('div') ;
 
     containerToSubjectDE = null ;
 
-    
-
-
     async getGoodsByModelName (modelName) {
-
-        const url = './php_handlers/getGoodsByModelName.php' ;
+  
+        const url = 'http://localhost/php_handlers/getGoodsByModelName.php' ;
         const options = {
-
+            
             method: 'POST',
             headers: {
                 // 'Content-Type': 'application/json'
@@ -24,21 +19,27 @@ class BrandNames {
             body: 'modelname=' + modelName ,
         } ;
 
-        return await fetch(url , options).then(result => result.json()).then(data => {
+        console.log(options);
+        
+        await fetch(url , options).then(result => {
+
+            return result.json()  ;
+
+        }).then(data => {
+            
             let display = document.querySelector('#main-content-goods');
             display.innerHTML = '' ;
+            
             data.forEach(elem => {
                 console.log(elem);
                 let div = document.createElement('div');
                 div.innerText = elem.taste ;
                 display.append(div);
             });
-
+            
+            return data ;
+            
         }) ;
-
-        // response.json().then(data => {
-        //     console.log(data);
-        // });
 
     }
 
@@ -59,9 +60,8 @@ class BrandNames {
 
         return response.json() ;
 
+
     }
-
-
 
     constructor () {
 
@@ -69,8 +69,6 @@ class BrandNames {
 
         let resultData = null ;
 
-
-        // this.getBrandNames()
         this.getBrandNames().then( data => {
             
             data[1].forEach( elem => {
@@ -78,56 +76,31 @@ class BrandNames {
                 elem_the_a.href = '#' ;
                 elem_the_a.innerText = elem.modelname ;
                 this.subj_DOM_elem.append(elem_the_a);
-
+                
                 elem_the_a.onclick = (e) => {
-
+                    
                     e.preventDefault();
 
-                    // alert();
-
                     const data = this.getGoodsByModelName(elem.modelname) ;
-
-                    console.log(data);
-
                 }
-
-
-                // console.log(elem);
             });
-
-
-
         });
-
-
-        // console.log(resultData);
-
     }
 }
-
 
 class CatalogManager {
 
     modules = [] ;
 
-
     goodsDisplay = document.querySelector('#main-content-goods');
-
-
 
     constructor (containerToBrandnames) {
         
 
         this.modules[Symbol.for('brandNames')] = new BrandNames() ;
-
         containerToBrandnames.append(this.modules[Symbol.for('brandNames')].subj_DOM_elem);
-
-
-
     }
 }
-
-
 
 export {
     
