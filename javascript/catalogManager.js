@@ -10,6 +10,7 @@ class GoodCardPreview {
     description = null ;
     description_full = null ;
 
+
     img = null ;
 
     constructor ({title , description , description_full , imgSrc}) {
@@ -18,7 +19,7 @@ class GoodCardPreview {
 
             createSDE (className = '' , secondClassName = '') {
 
-                const newSde = document.createElement('img');
+                const newSde = document.createElement('div');
                 newSde.className = className ;
                 newSde.classList.add(secondClassName);
 
@@ -26,6 +27,8 @@ class GoodCardPreview {
             }
 
             subj_DOM_elem = null ;
+
+            img = document.createElement('img') ;
 
             src = '' ;
 
@@ -36,6 +39,11 @@ class GoodCardPreview {
                 this.subj_DOM_elem = this.createSDE(className1 , className2);
 
                 this.subj_DOM_elem.src = this.src ;
+
+                this.img.src = imgSrc ;
+                this.img.className = 'good-preview-img' ;
+
+                this.subj_DOM_elem.append(this.img);
 
             }
         }
@@ -76,7 +84,7 @@ class GoodCardPreview {
 
         this.description_full = new Item (description_full , 'goodItem' , 'goodItem-description-full') ;
 
-        this.img = new Img (imgSrc , 'goodItem' , 'goodItem-description-full');
+        this.img = new Img (imgSrc , 'goodItem' , 'goodItem-img-container');
 
 
         this.subj_DOM_elem.append(this.title.subj_DOM_elem , this.description.subj_DOM_elem , this.description_full.subj_DOM_elem , this.img.subj_DOM_elem) ;
@@ -122,12 +130,12 @@ class BrandNames {
 
 
                 console.log(elem);
-                let div = document.createElement('div');
+                // let div = document.createElement('div');
 
 
-                div.append(cardPreview.subj_DOM_elem);
+                // div.append(cardPreview.subj_DOM_elem);
                 // div.innerText = elem.taste ;
-                display.append(div);
+                display.append(cardPreview.subj_DOM_elem);
 
 
 
