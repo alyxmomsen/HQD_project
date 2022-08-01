@@ -42,14 +42,37 @@ body {
 	flex: 4;
 	position: relative;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	/* flex-direction: column; */
+	/* align-items: center; */
 	gap: 9px;
 	padding: 9px;
 	font-size: 19px;
 	font-weight: bold;
 	/* overflow: hidden; */
 	overflow-y: scroll;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.goodCard-preview {
+	width: 30%;
+	background-color: #405043;
+	padding: 2px;
+	height: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+	align-items: center;
+	/* text-align: ; */
+	font-weight: normal;
+	color: whitesmoke;
+}
+
+
+.good-preview-img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
 }
 
 /* ----------------- */
