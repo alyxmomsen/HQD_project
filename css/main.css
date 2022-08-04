@@ -21,6 +21,14 @@ body {
 	align-items: center;
 }
 
+.container_1 {
+	height: 100%;
+	padding: 9px;
+	display: flex;
+	align-items: center;
+	background-color: gainsboro;
+}
+
 #header .menu-button {
 	cursor: pointer;
 	text-transform: uppercase;
